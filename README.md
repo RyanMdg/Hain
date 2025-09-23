@@ -201,6 +201,21 @@ Closes #<issue-number> (if any)
 
 ---
 
+# 🔄 Resetting Your Branch (If You Mess Up)
+
+Sometimes, you might break your code and just want to go back to the last commit of your branch.  
+Here are the steps you can follow:
+
+---
+
+## 1. Discard All Local Changes (Go Back to Last Commit)
+
+```bash
+git reset --hard HEAD
+```
+
+---
+
 ## 10. Need help?
 
 If something breaks or you’re unsure, post a short message in our group chat or open an Issue on GitHub describing:
