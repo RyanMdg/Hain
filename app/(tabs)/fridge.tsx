@@ -5,6 +5,7 @@ export default function Fridge() {
   return (
     <SafeAreaView>
       <Text>this is fridge</Text>
+      <Text>testing</Text>
     </SafeAreaView>
   );
 }
