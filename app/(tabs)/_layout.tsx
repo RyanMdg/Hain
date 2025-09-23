@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { CurvedBottomBar } from "react-native-curved-bottom-bar";
+import Fridge from "./fridge";
 import Index from "./index";
 
 export default function App() {
@@ -59,22 +60,25 @@ export default function App() {
     >
       <CurvedBottomBar.Screen
         name="Home"
-        position="LEFT"
         options={{ headerShown: false }}
+        position="LEFT"
         component={() => <Index />}
       />
       <CurvedBottomBar.Screen
         name="fridge"
+        options={{ headerShown: false }}
         position="LEFT"
-        component={() => <Text>Trips Screen</Text>}
+        component={() => <Fridge />}
       />
       <CurvedBottomBar.Screen
         name="mealPlan"
+        options={{ headerShown: false }}
         position="RIGHT"
         component={() => <Text>Schedule Screen</Text>}
       />
       <CurvedBottomBar.Screen
         name="Profile"
+        options={{ headerShown: false }}
         position="RIGHT"
         component={() => <Text>Profile Screen</Text>}
       />
