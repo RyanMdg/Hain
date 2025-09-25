@@ -1,30 +1,50 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { CurvedBottomBar } from "react-native-curved-bottom-bar";
+import ModalScreen from "../modal";
 import Fridge from "./fridge";
 import Index from "./index";
-import MealPlanner from "./mealPlannerTab";
+
 
 export default function App() {
+  const [type, setType] = useState<string>("DOWN");
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const handleModal = () => {
+    setIsVisible((prev) => !prev);
+  };
   return (
     <CurvedBottomBar.Navigator
-      type="DOWN"
+      type={type}
       style={styles.bottomBar}
       shadowStyle={styles.shadow}
-      height={80}
+      height={70}
       circleWidth={55}
       bgColor="#01A464"
       initialRouteName="Home"
-      renderCircle={({ selectedTab, navigate }) => (
-        <View style={styles.btnCircle}>
-          <Image source={require("@/assets/images/ai.png")} className=" w-9" />
-        </View>
+      renderCircle={({ selectedTab, navigate }: RenderCircleProps) => (
+        <>
+          <ModalScreen status={isVisible} onpress={handleModal} />
+
+          <View style={styles.btnCircle}>
+            <Pressable onPress={handleModal}>
+              <Image
+                source={require("@/assets/images/ai.png")}
+                className=" w-9"
+              />
+            </Pressable>
+          </View>
+        </>
       )}
-      tabBar={({ routeName, selectedTab, navigate }) => {
+      tabBar={({ routeName, selectedTab, navigate }: RenderCircleProps) => {
         let icon: any;
-        // if (routeName === "Home") icon = "document-text-outline";
-        // else if (routeName === "fridge") icon = "bus-outline";
-        // else if (routeName === "mealPlan") icon = "calendar-outline";
-        // else if (routeName === "Profile") icon = "person-outline";
 
         switch (routeName) {
           case "Home":
@@ -49,8 +69,8 @@ export default function App() {
             <Image
               source={icon}
               style={{
-                width: 25,
-                height: 25,
+                width: 27,
+                height: 27,
                 tintColor: routeName === selectedTab ? "white" : "lightgray",
               }}
               resizeMode="contain"
