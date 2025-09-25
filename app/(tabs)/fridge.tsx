@@ -1,7 +1,5 @@
+import FridgeNavContainer from "@/components/FridgeNavContainer";
 import FridgeNav from "@/components/fridgeNavigation";
-import MealsScreen from "@/screens/fridgeTab/MealsScreen";
-import MyPantry from "@/screens/fridgeTab/MyPantryScreen";
-import ShopListScreen from "@/screens/fridgeTab/shopListScreen";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -28,13 +26,8 @@ export default function Fridge() {
             </Pressable>
           ))}
         </FridgeNav>
-
-        <View className=" mt-5">
-          {currentScreen === "My Pantry" ? <MyPantry /> : null}
-          {currentScreen === "Meals" ? <MealsScreen /> : null}
-          {currentScreen === "Shop List" ? <ShopListScreen /> : null}
-        </View>
       </View>
+      <FridgeNavContainer activeScreen={currentScreen} />
     </SafeAreaView>
   );
 }

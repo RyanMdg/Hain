@@ -10,6 +10,7 @@ const ShopListScreen = () => {
           className=" bg-white  rounded-xl"
           keyboardType="web-search"
         />
+
         <Ionicons name="add-circle" size={32} color="black" />
       </View>
     </View>

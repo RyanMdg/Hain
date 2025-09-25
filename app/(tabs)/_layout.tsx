@@ -11,7 +11,13 @@ import { CurvedBottomBar } from "react-native-curved-bottom-bar";
 import ModalScreen from "../modal";
 import Fridge from "./fridge";
 import Index from "./index";
+import MealPlanner from "./mealPlannerTab";
 
+type RenderCircleProps = {
+  selectedTab: string; // or number, depends on your tab key type
+  navigate: (tab: string) => void;
+  routeName: string;
+};
 
 export default function App() {
   const [type, setType] = useState<string>("DOWN");
@@ -95,7 +101,7 @@ export default function App() {
         name="mealPlan"
         options={{ headerShown: false }}
         position="RIGHT"
-        component={MealPlanner}
+        component={<MealPlanner />}
       />
       <CurvedBottomBar.Screen
         name="Profile"
